@@ -111,9 +111,9 @@ translate([-R, 0, -thickness/2]) {
 
 // And last the housing and coverplate (if desired)
 //
-housing(R, shaft_length, shaft_dia, rotor_thickness);
 */
-difference(){
+housing(R, shaft_length, shaft_dia, rotor_thickness);
+/*difference(){
   translate([0, 0, -1.01*rotor_thickness - 0.99*shaft_length]) coverplate(R, shaft_length, shaft_dia, rotor_thickness);
   translate([R, 0, -0.1]) cylinder(r = 2.65, h = 10, $f = 100); // place a hole for the shaft of the motor
   translate([R, 0, 1]) cylinder(r = 11, h = 2.01, $f = 100); // place a 2mm hole for the shoulder of the motor (plate is 3mm thick)
@@ -127,7 +127,7 @@ difference(){
   translate([R + 31/2, -31/2, -0.01]) cylinder(r1 = 3.0, r2 = 1.75, h = 1.6, $f = 100); // panhead screws are 5.8mm dia. max and 1.5mm deep pan
   translate([R - 31/2, 31/2, -0.01]) cylinder(r1 = 3.0, r2 = 1.75, h = 1.6, $f = 100); // panhead screws are 5.8mm dia. max and 1.5mm deep pan
   translate([R - 31/2, -31/2, -0.01]) cylinder(r1 = 3.0, r2 = 1.75, h = 1.6, $f = 100); // panhead screws are 5.8mm dia. max and 1.5mm deep pan
-}
+}*/
 //
 //===========================================
 
@@ -205,7 +205,7 @@ color([0.7, 0, 0.4]) {
 difference() {
 	union() {
 		translate([0, 0, h_backplate/2])
-			cube([l_housing, w_housing, h_backplate], center = true);
+			color("blue") cube([l_housing, w_housing, h_backplate], center = true);
 
 		difference(){
 			translate([0, 0, h_housing/2 + h_backplate])
@@ -219,7 +219,8 @@ difference() {
 	//translate([0, sqrt( 1.01*1.01*1.5*1.5 - 1)*R, h_total/2])
 	//	cylinder(r = R/6, h = 1.1*h_total, center = true);
 	translate([0, 0,1.1* h_housing/2 + h_backplate])
-		cube([R/6, 1.1*w_housing, 1.1*h_housing], center = true);
+		// cube([R/6, 1.1*w_housing, 1.1*h_housing], center = true);
+                rotate([90,0,0]) cylinder(r = 5.7/2, h = 1.1*w_housing, $f = 100, center = true);
 	translate([-R, 0, h_backplate/2 ])
 		cylinder(r = 1.05 * shaft_dia/2, h = 1.1*h_backplate, center = true);
 	translate([R, 0, h_backplate/2 ])
