@@ -111,11 +111,11 @@ translate([-R, 0, -thickness/2]) {
 
 // And last the housing and coverplate (if desired)
 //
-*/
 housing(R, shaft_length, shaft_dia, rotor_thickness);
-/*difference(){
+*/
+difference(){
   translate([0, 0, -1.01*rotor_thickness - 0.99*shaft_length]) coverplate(R, shaft_length, shaft_dia, rotor_thickness);
-  translate([R, 0, -0.1]) cylinder(r = 2.65, h = 10, $f = 100); // place a hole for the shaft of the motor
+  translate([R, 0, -0.1]) cylinder(r = 2.75, h = 10, $f = 100); // place a hole for the shaft of the motor
   translate([R, 0, 1]) cylinder(r = 11, h = 2.01, $f = 100); // place a 2mm hole for the shoulder of the motor (plate is 3mm thick)
 
   translate([R + 31/2, 31/2, -0.01]) cylinder(r = 1.75, h = 10, $f = 100); // motor screwholes are on a 31mm square, 3.5mm diameter (body holes)
@@ -127,7 +127,7 @@ housing(R, shaft_length, shaft_dia, rotor_thickness);
   translate([R + 31/2, -31/2, -0.01]) cylinder(r1 = 3.0, r2 = 1.75, h = 1.6, $f = 100); // panhead screws are 5.8mm dia. max and 1.5mm deep pan
   translate([R - 31/2, 31/2, -0.01]) cylinder(r1 = 3.0, r2 = 1.75, h = 1.6, $f = 100); // panhead screws are 5.8mm dia. max and 1.5mm deep pan
   translate([R - 31/2, -31/2, -0.01]) cylinder(r1 = 3.0, r2 = 1.75, h = 1.6, $f = 100); // panhead screws are 5.8mm dia. max and 1.5mm deep pan
-}*/
+}
 //
 //===========================================
 
