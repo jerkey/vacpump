@@ -94,8 +94,8 @@ difference(){
           }
   }
   difference(){
-    translate([0, 0, -0.1]) cylinder(r = 2.5, h = 30, $f = 100);
-    translate([1.5, -4, -0.15]) cube([10,10,thickness-2]);
+    translate([0, 0, -0.1]) cylinder(r = 2.65, h = 30, $f = 100); // motor shaft hole
+    translate([1.65, -4, -0.15]) cube([10,10,thickness-2]); // key of shaft hole
   }
 }
 /*
