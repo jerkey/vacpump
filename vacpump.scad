@@ -68,7 +68,7 @@ shaft_length = 3;
 //
 // First the Left Rotor
 //
-color([0.2, 0.7, 0.2])
+/*color([0.2, 0.7, 0.2])
 translate([-R, 0, 0]) // shaft_length]) 
 	rotate([0, 0, alpha]) 
 		rootsRotor(R, r, r, 4*n_wedge, n_wedge, rotor_thickness, r_bore,  rotor_twist);
@@ -79,19 +79,26 @@ color([0.2, 0.5, 0.5])
 translate([R, 0, 0]) // shaft_length]) 
 	rotate([0, 0, -alpha]) 
 		rootsRotor(R, r, r, 4*n_wedge, n_wedge, rotor_thickness, r_bore,  -rotor_twist);
-
+*/
 // Now place the Timing Gears
 //
-/*color([0.3, 0.3, 0.5]){
-translate([R, 0, -thickness/2]) {
-	rotate([0, 0, 90-alpha]) {
-		gearshaft ( mm_per_tooth, number_of_teeth, thickness,  
-			hole_diameter, twist, teeth_to_hide,   
-			pressure_angle, clearance, backlash,
-			shaft_dia, shaft_length, r_bore, rotor_thickness);
-	}
+//color([0.3, 0.3, 0.5]){
+//translate([R, 0, -thickness/2]) {
+difference(){
+  translate([0, 0, thickness/2]) {
+          rotate([0, 0, 90-alpha]) {
+                  gearshaft ( mm_per_tooth, number_of_teeth, thickness,  
+                          hole_diameter, twist, teeth_to_hide,   
+                          pressure_angle, clearance, backlash,
+                          shaft_dia, shaft_length, r_bore, rotor_thickness);
+          }
+  }
+  difference(){
+    translate([0, 0, -0.1]) cylinder(r = 2.5, h = 30, $f = 100);
+    translate([1.5, -4, -0.15]) cube([10,10,thickness-2]);
+  }
 }
-
+/*
 translate([-R, 0, -thickness/2]) {
 	rotate([0, 0, alpha]) {
 		gearshaft ( mm_per_tooth, number_of_teeth, thickness,  
